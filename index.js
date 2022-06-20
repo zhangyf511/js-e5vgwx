@@ -38,8 +38,10 @@ var amap = new AMap.Map('amap', {
 const map = new Map('map', {
   renderer: new Canvas(),
 });
+map.setView([39.909186, 116.397411], 10);
+// // var map = new Map('map');
 
-// var map = new Map('map');
+// Map和高德地图耦合
 map.on('zoom', (evt) => {
   amap.setZoom(evt.target.getZoom());
 });
@@ -47,26 +49,30 @@ map.on('move', (evt) => {
   const pt = evt.target.getCenter();
   amap.setZoomAndCenter(evt.target.getZoom(), [pt.lng, pt.lat]);
 });
-map.setView([39.909186, 116.397411], 10);
 
-// 点
-new Marker([39.94758202338572, 116.38795852661131], {
+// // 点
+new Marker([39.909186, 116.397411], {
   icon: new Icon({
     iconUrl:
       'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
     iconSize: [25, 41],
     iconAnchor: [12, 41],
   }),
-});
+}).addTo(map);
 
-// 点
-new CircleMarker([39.909186, 166.457411]).addTo(map);
-// 线
-new Polyline([39.909186, 166.457411], [39.999186, 166.457411]).addTo(map);
-// 面
-new Polygon(
-  [39.909186, 166.507411],
-  [39.909186, 166.407411],
-  [39.099186, 166.407411],
-  [39.099186, 166.507411]
-).addTo(map);
+// // 点
+// new CircleMarker([39.909186, 166.457411]).addTo(map);
+
+// // 线
+// new Polyline([
+//   [39.909186, 166.457411],
+//   [39.999186, 166.457411],
+// ]).addTo(map);
+
+// // 面
+// new Polygon(
+//   [39.909186, 166.507411],
+//   [39.909186, 166.407411],
+//   [39.099186, 166.407411],
+//   [39.099186, 166.507411]
+// ).addTo(map);
