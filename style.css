@@ -16,6 +16,7 @@ h2 {
   position: absolute;
   z-index: 2;
   background: transparent;
+  opacity: 0.8;
 }
 #amap {
   width: 100%;

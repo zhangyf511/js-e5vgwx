@@ -22,12 +22,12 @@ var amap = new AMap.Map('amap', {
   dragEnable: false,
   mapStyle: 'amap://styles/whitesmoke',
   // mapStyle: 'amap://styles/242e59d29506cac6a4d60c3ad08f4951',
-  zoomEnable: false,
+  // zoomEnable: false,
   resizeEnble: true,
   doubleClickZoom: false,
   keyboardEnable: false,
   scrollWheel: false,
-  expandZoomRange: true,
+  expandZoomRange: false,
   zooms: [1, 20],
   features: ['road', 'point', 'bg'],
   viewMode: '2D',
@@ -36,9 +36,9 @@ var amap = new AMap.Map('amap', {
 
 // const map = new Map('map');
 const map = new Map('map', {
-  renderer: new Canvas(),
+  // renderer: new Canvas(),
 });
-map.setView([39.909186, 116.397411], 10);
+map.setView([39.909186, 116.397411], 14);
 // // var map = new Map('map');
 
 // Map和高德地图耦合
@@ -51,7 +51,7 @@ map.on('move', (evt) => {
 });
 
 // // 点
-new Marker([39.909186, 116.397411], {
+new Marker([39.909176, 116.397411], {
   icon: new Icon({
     iconUrl:
       'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
@@ -61,7 +61,7 @@ new Marker([39.909186, 116.397411], {
 }).addTo(map);
 
 // // 点
-new CircleMarker([39.909186, 166.457411]).addTo(map);
+new CircleMarker([39.909186, 166.407411]).addTo(map);
 
 // // 线
 new Polyline([
