@@ -9,9 +9,6 @@ import {
   Canvas,
   Polygon,
 } from 'leaflet';
-// Write Javascript code!
-// const appDiv = document.getElementById('map');
-// appDiv.innerHTML = `<h1>JS Starter</h1>`;
 
 //创建高德地图
 var amap = new AMap.Map('amap', {
@@ -20,7 +17,7 @@ var amap = new AMap.Map('amap', {
   optimizePanAnimation: false,
   animateEnable: false,
   dragEnable: false,
-  mapStyle: 'amap://styles/whitesmoke',
+  mapStyle: 'amap://styles/dark',
   // mapStyle: 'amap://styles/242e59d29506cac6a4d60c3ad08f4951',
   // zoomEnable: false,
   resizeEnble: true,
@@ -32,14 +29,10 @@ var amap = new AMap.Map('amap', {
   features: ['road', 'point', 'bg'],
   viewMode: '2D',
 });
-// var amap = new AMap.Map('amap');
-
-// const map = new Map('map');
 const map = new Map('map', {
-  // renderer: new Canvas(),
+  renderer: new Canvas(),
 });
 map.setView([39.909186, 116.397411], 14);
-// // var map = new Map('map');
 
 // Map和高德地图耦合
 map.on('zoom', (evt) => {
@@ -50,7 +43,7 @@ map.on('move', (evt) => {
   amap.setZoomAndCenter(evt.target.getZoom(), [pt.lng, pt.lat]);
 });
 
-// // 点
+// 点
 new Marker([39.909176, 116.397411], {
   icon: new Icon({
     iconUrl:
@@ -60,19 +53,19 @@ new Marker([39.909176, 116.397411], {
   }),
 }).addTo(map);
 
-// // 点
-new CircleMarker([39.909186, 166.407411]).addTo(map);
+// 点
+new CircleMarker([39.909186, 116.407411]).addTo(map);
 
-// // 线
+// 线
 new Polyline([
-  [39.909186, 166.457411],
-  [39.999186, 166.457411],
+  [39.909186, 116.457411],
+  [39.999186, 116.507411],
 ]).addTo(map);
 
-// // 面
+// 面
 new Polygon([
-  [39.909186, 166.507411],
-  [39.909186, 166.407411],
-  [39.099186, 166.407411],
-  [39.099186, 166.507411],
+  [39.899186, 116.507411],
+  [39.899186, 116.427411],
+  [39.909186, 116.427411],
+  [39.909186, 116.507411],
 ]).addTo(map);
